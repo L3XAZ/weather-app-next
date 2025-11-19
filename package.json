@@ -9,9 +9,17 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/icons-material": "^7.3.5",
+    "@mui/material": "^7.3.5",
+    "@reduxjs/toolkit": "^2.10.1",
+    "axios": "^1.13.2",
     "next": "16.0.3",
     "react": "19.2.0",
-    "react-dom": "19.2.0"
+    "react-dom": "19.2.0",
+    "react-redux": "^9.2.0",
+    "sass": "^1.94.1"
   },
   "devDependencies": {
     "@types/node": "^20",
