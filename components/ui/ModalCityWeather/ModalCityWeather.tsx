@@ -9,10 +9,10 @@ import { unselectCity, selectSelectedCity } from "@/store/slices/citiesSlice";
 
 import type { FetchedCityWeather } from "@/types/weather";
 import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
-import Chart from "./Chart";
+import HourlyChart from "./HourlyChart";
 
 import styles from "./ModalCityWeather.module.scss";
-import { getTodayString, getMainValues } from "./helpers";
+import { getTodayString, getMainValues } from "../../../lib/weatherHelpers";
 
 export default function ModalCityWeather() {
     const dispatch = useAppDispatch();
@@ -59,7 +59,7 @@ export default function ModalCityWeather() {
 
                     <div className={styles.chart}>
                         <div className={styles.chartInner}>
-                            <Chart cityName={name} />
+                            <HourlyChart cityName={name} />
                         </div>
                     </div>
 

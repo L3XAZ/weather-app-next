@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { WEATHER_BASE_URL } from "@/constrains";
+import { WEATHER_BASE_URL } from "@/constants";
 import type {
     FetchedCityWeather,
     FetchedHourlyForecast,

@@ -11,13 +11,13 @@ import {
     Tooltip,
     CartesianGrid,
 } from "recharts";
-import { useGetHourlyForecastQuery } from "@/api/weatherApi";
+import { useGetHourlyForecastQuery } from "@/store/api/weatherApi";
 
 interface Props {
     cityName: string;
 }
 
-export default function Chart({ cityName }: Props) {
+export default function HourlyChart({ cityName }: Props) {
     const { data, isLoading, error } = useGetHourlyForecastQuery(cityName);
 
     if (isLoading) {

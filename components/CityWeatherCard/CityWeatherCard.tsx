@@ -11,7 +11,7 @@ import { deleteCity, selectCity } from "@/store/slices/citiesSlice";
 import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
 
 import styles from "./CityWeatherCard.module.scss";
-import {useGetCityWeatherQuery} from "@/api/weatherApi";
+import {useGetCityWeatherQuery} from "@/store/api/weatherApi";
 
 interface Props {
     cityRef: string;

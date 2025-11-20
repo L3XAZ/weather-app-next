@@ -1,6 +1,6 @@
 "use client";
 
-import { CITIES_NAMES_KEY } from "@/constrains";
+import { CITIES_NAMES_KEY } from "@/constants";
 
 export const getCitiesFromLS = (): string[] => {
     if (typeof window === "undefined") return [];
