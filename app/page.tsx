@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
 import { setCities } from "@/store/slices/citiesSlice";
 import { getCitiesFromLS } from "@/lib/localStorage";

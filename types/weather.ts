@@ -1,3 +1,5 @@
+export type CityId = number;
+
 export interface WeatherItem {
     id: number;
     main: string;
@@ -14,7 +16,7 @@ export interface WeatherMainInfo {
 }
 
 export interface FetchedCityWeather {
-    id: number;
+    id: CityId;
     name: string;
     weather: WeatherItem[];
     main: WeatherMainInfo;
@@ -30,7 +32,4 @@ export interface FetchedHourlyForecast {
     list: FetchedHourlyForecastItem[];
 }
 
-export type HourlyForecast = {
-    temp: number;
-    hours: string;
-}[];
+export type HourlyForecast = { temp: number; hours: string }[];

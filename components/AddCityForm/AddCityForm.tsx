@@ -4,7 +4,7 @@ import React, { FC, FormEvent, memo, useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { TextField, Button } from "@mui/material";
 
-import { useAppDispatch } from "@/hooks";
+import { useAppDispatch } from "@/hooks/redux";
 import { addCity } from "@/store/slices/citiesSlice";
 
 import styles from "./AddCityForm.module.scss";

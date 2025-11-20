@@ -6,7 +6,7 @@ import ClearIcon from "@mui/icons-material/Clear";
 import UpdateIcon from "@mui/icons-material/Update";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { useAppDispatch } from "@/hooks";
+import { useAppDispatch } from "@/hooks/redux";
 import { deleteCity, selectCity } from "@/store/slices/citiesSlice";
 import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
 

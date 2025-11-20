@@ -12,21 +12,14 @@ interface GlobalState {
 }
 
 const initialState: GlobalState = {
-    alert: {
-        isOpen: false,
-        severity: AlertSeverity.SUCCESS,
-        message: "",
-    },
+    alert: { isOpen: false, severity: AlertSeverity.SUCCESS, message: "" },
 };
 
 export const globalSlice = createSlice({
     name: "global",
     initialState,
     reducers: {
-        openAlert: (
-            state,
-            action: PayloadAction<{ severity: AlertSeverity; message: string }>
-        ) => {
+        openAlert: (state, action: PayloadAction<{ severity: AlertSeverity; message: string }>) => {
             state.alert = { ...action.payload, isOpen: true };
         },
         closeAlert: (state) => {

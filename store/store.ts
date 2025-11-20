@@ -10,7 +10,12 @@ export const store = configureStore({
         [weatherApi.reducerPath]: weatherApi.reducer,
     },
     middleware: (getDefaultMiddleware) =>
-        getDefaultMiddleware().concat(weatherApi.middleware),
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: ["persist/PERSIST"],
+            },
+        }).concat(weatherApi.middleware),
+    devTools: process.env.NODE_ENV !== "production",
 });
 
 export type RootState = ReturnType<typeof store.getState>;

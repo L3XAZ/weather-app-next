@@ -4,7 +4,7 @@ import React from "react";
 import { Modal, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { useAppDispatch, useAppSelector } from "@/hooks";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { unselectCity, selectSelectedCity } from "@/store/slices/citiesSlice";
 
 import type { FetchedCityWeather } from "@/types/weather";
