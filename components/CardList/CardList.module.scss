@@ -1,0 +1,33 @@
+.cardList {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  width: 100%;
+  padding: 32px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  align-items: start;
+
+  &.centerChildren > * {
+    display: flex;
+    justify-content: center;
+  }
+
+  .cardItem {
+    width: 100%;
+    display: block;
+  }
+
+  @media (max-width: 900px) {
+    gap: 18px;
+    padding: 24px 12px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    padding: 16px 12px;
+    grid-template-columns: 1fr;
+  }
+}

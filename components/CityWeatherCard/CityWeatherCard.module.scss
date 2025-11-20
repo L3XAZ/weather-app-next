@@ -1,0 +1,112 @@
+:global(.MuiCard-root) {
+  background: var(--card-bg) !important;
+  color: var(--text) !important;
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-card) !important;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  min-height: 260px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--card-bg);
+  color: var(--text);
+  box-shadow: var(--shadow-card);
+
+  &:hover {
+    transform: scale(1.01);
+    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), box-shadow 0.35s ease;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.55);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 20px !important;
+}
+
+.topArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.iconWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.cityName {
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 36px !important;
+}
+
+.temp {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--accent, #4aa3ff);
+  font-size: 28px !important;
+}
+
+.mainText {
+  margin-top: 10px;
+  opacity: 0.9;
+  font-size: 16px;
+}
+
+.desc {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  padding-top: 14px;
+}
+
+.deleteBtn,
+.refreshBtn {
+  width: 38px !important;
+  height: 38px !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.deleteBtn {
+  background: rgba(0, 0, 0, 0.4) !important;
+  color: var(--text) !important;
+}
+
+.refreshBtn {
+  background: var(--accent-gold) !important;
+  color: #000 !important;
+}
+
+.loadingWrapper,
+.errorWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 260px;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  max-width: 420px;
+  margin: 0 auto;
+}

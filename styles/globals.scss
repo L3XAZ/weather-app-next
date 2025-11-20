@@ -1,0 +1,58 @@
+@use "./variables.scss" as vars;
+@use "./mixins.scss";
+@use "./reset.scss";
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+
+:root{
+  --bg: #000;
+  --card-bg: #{vars.$color-bg-card};
+  --text: #{vars.$color-text-main};
+  --muted: #{vars.$color-text-secondary};
+  --accent-gold: #{vars.$color-accent-gold};
+  --danger: #{vars.$color-danger};
+  --border: #{vars.$color-border};
+  --radius-lg: #{vars.$radius-lg};
+  --radius-md: #{vars.$radius-md};
+  --radius-sm: #{vars.$radius-sm};
+  --shadow-card: #{vars.$shadow-card};
+}
+
+
+html,
+body,
+#__next {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: var(--bg);
+  font-family: "Manrope", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.page-empty {
+  margin-top: 32px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 34px;
+}
+
+.page-content {
+  padding-top: 32px;
+  padding-bottom: 32px;
+}
+
+.topBar {
+  padding: 12px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
