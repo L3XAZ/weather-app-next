@@ -1,20 +1,3 @@
-// "use client";
-//
-// import React, { FC } from "react";
-//
-// interface Props {
-//     name: string; // например "01d"
-//     height?: number;
-// }
-//
-// const DynamicSvgIcon: FC<Props> = ({ name, height = 65 }) => {
-//     const file = `/icons/${name}.svg`;
-//
-//     return <img src={file} height={height} alt={name} />;
-// };
-//
-// export default DynamicSvgIcon;
-
 "use client";
 
 import React, { FC, memo } from "react";
@@ -23,12 +6,11 @@ import styles from "./DynamicSvgIcon.module.scss";
 
 interface Props {
     name?: string | null;
-    size?: number; // width = height (px)
+    size?: number;
     className?: string;
 }
 
 const DynamicSvgIcon: FC<Props> = memo(({ name, size = 64, className }) => {
-    // fallback если API вернул undefined/null
     const fileName = (name && name.trim()) || "default-weather-icon";
 
     return (

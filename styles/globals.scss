@@ -4,20 +4,20 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
-:root{
+:root {
   --bg: #000;
   --card-bg: #{vars.$color-bg-card};
   --text: #{vars.$color-text-main};
   --muted: #{vars.$color-text-secondary};
+  --gold-soft: #{vars.$color-gold-soft};
+  --gold-light: #{vars.$color-gold-light};
   --accent-gold: #{vars.$color-accent-gold};
-  --danger: #{vars.$color-danger};
   --border: #{vars.$color-border};
   --radius-lg: #{vars.$radius-lg};
   --radius-md: #{vars.$radius-md};
   --radius-sm: #{vars.$radius-sm};
   --shadow-card: #{vars.$shadow-card};
 }
-
 
 html,
 body,

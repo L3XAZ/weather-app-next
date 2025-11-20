@@ -9,7 +9,7 @@ import { getCitiesFromLS } from "@/lib/localStorage";
 import AddCityForm from "@/components/AddCityForm/AddCityForm";
 import CardList from "@/components/CardList/CardList";
 import CityWeatherCard from "@/components/CityWeatherCard/CityWeatherCard";
-import ModalCityWeather from "@/components/ModalCityWeather";
+import ModalCityWeather from "@/components/ui/ModalCityWeather/ModalCityWeather";
 
 export default function Page() {
     const cities = useAppSelector((s) => s.cities.cities);
