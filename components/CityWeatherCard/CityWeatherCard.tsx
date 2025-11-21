@@ -45,7 +45,11 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
     const temperature = Math.round(city.main?.temp);
 
     return (
-        <Card className={styles.card} onClick={handleSelect}>
+        <Card
+            className={styles.card}
+            onClick={handleSelect}
+            data-testid="weather-card"
+        >
             <CardContent className={styles.content}>
                 <div className={styles.topArea}>
                     <div className={styles.iconWrap}>
@@ -75,6 +79,7 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
                         size="small"
                         className={styles.deleteBtn}
                         onClick={handleDelete}
+                        data-testid="delete-btn"
                     >
                         <ClearIcon fontSize="small" />
                     </IconButton>
@@ -83,6 +88,7 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
                         size="small"
                         className={styles.refreshBtn}
                         onClick={handleRefresh}
+                        data-testid="refresh-btn"
                     >
                         <UpdateIcon fontSize="small" />
                     </IconButton>

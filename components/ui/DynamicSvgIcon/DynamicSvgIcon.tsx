@@ -17,8 +17,12 @@ const DynamicSvgIcon: FC<Props> = ({ name, size = 64, className }) => {
         return cleaned || "default-weather-icon";
     }, [name]);
 
-    const wrapperStyle = useMemo(
-        () => ({ width: size, height: size }),
+    const wrapperStyle: React.CSSProperties = useMemo(
+        () => ({
+            width: size,
+            height: size,
+            position: "relative",
+        }),
         [size]
     );
 

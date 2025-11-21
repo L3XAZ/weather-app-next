@@ -40,7 +40,10 @@ export default function HourlyChart({ cityName }: Props) {
     }
 
     return (
-        <div className={styles.container}>
+        <div
+            className={styles.container}
+            data-testid="chart-container"
+        >
             <ResponsiveContainer>
                 <AreaChart
                     data={chartData}
