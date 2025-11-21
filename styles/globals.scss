@@ -1,28 +1,30 @@
 @use "./variables.scss" as vars;
-@use "./mixins.scss";
 @use "./reset.scss";
 
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --bg: #000;
+  --bg: #{vars.$color-bg};
   --card-bg: #{vars.$color-bg-card};
   --text: #{vars.$color-text-main};
   --muted: #{vars.$color-text-secondary};
+
   --gold-soft: #{vars.$color-gold-soft};
   --gold-light: #{vars.$color-gold-light};
   --accent-gold: #{vars.$color-accent-gold};
+
   --border: #{vars.$color-border};
+
   --radius-lg: #{vars.$radius-lg};
   --radius-md: #{vars.$radius-md};
   --radius-sm: #{vars.$radius-sm};
-  --shadow-card: #{vars.$shadow-card};
-}
 
-html,
-body,
-#__next {
-  height: 100%;
+  --shadow-card: #{vars.$shadow-card};
+  --shadow-card-hover: #{vars.$shadow-card-hover};
+
+  --container-max: #{vars.$container-max};
+  --spacing-base: #{vars.$spacing-md};
+  --spacing-lg: #{vars.$spacing-xl};
 }
 
 body {
@@ -31,28 +33,11 @@ body {
   background: var(--bg);
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.page-empty {
-  margin-top: 32px;
-  text-align: center;
-  color: var(--muted);
-  font-size: 34px;
-}
-
-.page-content {
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.topBar {
-  padding: 12px 0;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 16px;
-  box-sizing: border-box;
+  padding: 0 var(--spacing-base);
+  width: 100%;
 }

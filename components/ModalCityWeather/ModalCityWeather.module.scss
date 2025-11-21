@@ -1,11 +1,11 @@
 @use "@/styles/mixins" as mix;
 
 @keyframes iconPulse {
-  0%   { transform: scale(1); }
-  35%  { transform: scale(1.12); }
-  55%  { transform: scale(1.07); }
-  70%  { transform: scale(1.10); }
-  85%  { transform: scale(1.08); }
+  0% { transform: scale(1); }
+  35% { transform: scale(1.12); }
+  55% { transform: scale(1.07); }
+  70% { transform: scale(1.10); }
+  85% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
 
@@ -20,20 +20,19 @@
   width: 100%;
   max-width: 860px;
   padding: 22px;
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-lg);
   background: rgba(20, 20, 20, 0.72);
   border: 1px solid rgba(242, 200, 76, 0.25);
   backdrop-filter: blur(18px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(255, 200, 120, 0.05);
-  position: relative;
-  overflow: hidden;
 }
 
 .closeBtn {
   position: absolute !important;
   top: 16px;
   right: 16px;
-  color: var(--gold-light) !important;
   width: 32px !important;
   height: 32px !important;
   display: flex;
@@ -52,25 +51,29 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto auto auto;
-  gap: 26px 26px;
+  gap: 26px;
 }
 
 .header {
   grid-column: 1 / 4;
   text-align: center;
+}
 
-  .city {
-    font-size: 30px;
-    font-weight: 700;
-    color: var(--gold-light);
-    letter-spacing: 0.3px;
-  }
+.city {
+  font-size: 40px !important;
 
-  .date {
-    font-size: 15px;
-    margin-top: 4px;
-    color: var(--muted);
+  :global(.MuiTypography-root) & {
+    font-size: 36px;
   }
+  font-weight: 700;
+  color: var(--gold-light);
+  letter-spacing: 0.3px;
+}
+
+.date {
+  font-size: 16px !important;
+  padding-top: 5px;
+  color: var(--muted);
 }
 
 .left {
@@ -79,45 +82,45 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
+}
 
-  .iconWrap {
-    width: 120px;
-    height: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.iconWrap {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    @media (min-width: 769px) {
-      &:hover {
-        animation: iconPulse 1.3s ease-out forwards;
-      }
+  @media (min-width: 769px) {
+    &:hover {
+      animation: iconPulse 1.3s ease-out forwards;
     }
   }
+}
 
-  .temp {
-    font-size: 38px;
-    font-weight: 700;
-    margin-top: 4px;
-  }
+.temp {
+  font-size: 34px !important;
+  font-weight: 700;
+}
 
-  .main {
-    font-size: 20px;
-    font-weight: 500;
-  }
+.main {
+  font-size: 20px !important;
+  font-weight: 500;
+  color: var(--gold-light);
+}
 
-  .desc {
-    font-size: 15px;
-    color: var(--muted);
-    margin-bottom: 8px;
-    text-transform: capitalize;
-  }
+.desc {
+  font-size: 15px;
+  color: var(--muted);
+  text-transform: capitalize;
+  margin-bottom: 24px !important;
 }
 
 .chart {
   grid-column: 2 / 4;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
 }
 
 .chartInner {
@@ -129,31 +132,30 @@
   grid-column: 1 / 4;
   max-width: 650px;
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding-inline: 15px;
+}
 
-  .row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 6px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
 
-    span:first-child {
-      font-size: 15px;
-      color: var(--muted);
-    }
+.row span:first-child {
+  font-size: 15px;
+  color: var(--muted);
+}
 
-    span:last-child {
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--gold-soft);
-    }
-  }
+.row span:last-child {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--gold-soft);
 }
 
 @include mix.mobile {
@@ -174,24 +176,37 @@
 
   .header {
     grid-column: 1;
+  }
 
-    .city { font-size: 26px; }
-    .date { font-size: 14px; }
+  .city {
+    font-size: 26px;
+  }
+
+  .date {
+    font-size: 14px;
   }
 
   .left {
     grid-column: 1;
+  }
 
-    .iconWrap {
-      width: 100px;
-      height: 100px;
-      animation: none !important;
-      transform: none !important;
-    }
+  .iconWrap {
+    width: 100px;
+    height: 100px;
+    animation: none !important;
+    transform: none !important;
+  }
 
-    .temp { font-size: 34px; }
-    .main { font-size: 18px; }
-    .desc { font-size: 14px; }
+  .temp {
+    font-size: 34px;
+  }
+
+  .main {
+    font-size: 18px;
+  }
+
+  .desc {
+    font-size: 14px;
   }
 
   .chart {
@@ -206,15 +221,24 @@
     grid-column: 1;
     max-width: 90%;
     padding-inline: 4px;
+  }
 
-    .row {
-      span:first-child { font-size: 14px; }
-      span:last-child  { font-size: 15px; }
-    }
+  .row span:first-child {
+    font-size: 14px;
+  }
+
+  .row span:last-child {
+    font-size: 15px;
   }
 
   .closeBtn {
     top: 12px;
     right: 12px;
   }
+}
+
+:global(.MuiTypography-root) {
+  font-size: inherit;
+  line-height: inherit;
+  font-weight: inherit;
 }

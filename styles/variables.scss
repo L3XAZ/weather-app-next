@@ -1,10 +1,12 @@
+$color-bg: #000;
 $color-bg-card: rgba(21, 21, 21, 0.8);
-$color-text-main: #F5F5F5;
-$color-text-secondary: #C7C7C7;
+
+$color-text-main: #f5f5f5;
+$color-text-secondary: #c7c7c7;
 
 $color-gold-soft: #f2c97b;
 $color-gold-light: #f7e2a4;
-$color-accent-gold: #F2C94C;
+$color-accent-gold: #f2c94c;
 
 $color-border: rgba(255, 255, 255, 0.15);
 
@@ -13,3 +15,13 @@ $radius-md: 10px;
 $radius-sm: 6px;
 
 $shadow-card: 0 6px 18px rgba(0, 0, 0, 0.35);
+$shadow-card-hover: 0 12px 28px rgba(0, 0, 0, 0.55);
+
+$spacing-xxs: 4px;
+$spacing-xs: 8px;
+$spacing-sm: 12px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+$container-max: 1200px;

@@ -1,16 +1,14 @@
 .topBar {
   width: 100%;
   position: sticky;
-
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(6px);
-
-  z-index: 30;
-
   top: 0;
-  padding: 12px 0;
+  z-index: 30;
   display: flex;
   justify-content: center;
+  padding: 16px 0;
+  margin-top: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
   border-radius: 4px;
   overflow: hidden;
 }
@@ -18,13 +16,10 @@
 .inner {
   width: 100%;
   max-width: 1200px;
-
   display: flex;
   align-items: center;
   gap: 20px;
-
   padding: 0 16px;
-  box-sizing: border-box;
 }
 
 .logo {
@@ -45,7 +40,6 @@
   :global(.MuiOutlinedInput-root) {
     background: rgba(255, 255, 255, 0.06);
     backdrop-filter: blur(4px);
-
     font-size: 16px;
 
     fieldset {
@@ -90,7 +84,6 @@
   font-weight: 600 !important;
   font-size: 15px !important;
   border-radius: 8px !important;
-
   background: var(--accent-gold) !important;
   color: #000 !important;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
