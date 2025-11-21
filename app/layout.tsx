@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import { Providers } from "./providers";
 import BackgroundVideo from "@/components/ui/BackgroundVideo/BackgroundVideo";
+import ToastProvider from "@/components/ui/ToastProvider";
 
 export const metadata = {
     title: "Umbrella Weather",
@@ -10,11 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
-        <body suppressHydrationWarning={true}>
+        <body suppressHydrationWarning>
         <BackgroundVideo />
-        <Providers>
-            {children}
-        </Providers>
+        <Providers>{children}</Providers>
+        <ToastProvider />
         </body>
         </html>
     );

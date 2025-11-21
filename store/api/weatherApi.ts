@@ -42,10 +42,18 @@ export const weatherApi = createApi({
             },
             providesTags: (result) =>
                 result
-                    ? result.list.map((city) => ({ type: "CityWeather" as const, id: String(city.id) }))
+                    ? result.list.map((city) => ({
+                        type: "CityWeather" as const,
+                        id: String(city.id),
+                    }))
                     : [],
         }),
     }),
 });
 
-export const { useGetCityWeatherQuery, useGetHourlyForecastQuery, useGetCitiesWeatherQuery } = weatherApi;
+export const {
+    useGetCityWeatherQuery,
+    useLazyGetCityWeatherQuery,
+    useGetHourlyForecastQuery,
+    useGetCitiesWeatherQuery,
+} = weatherApi;

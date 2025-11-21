@@ -6,20 +6,24 @@ import ClearIcon from "@mui/icons-material/Clear";
 import UpdateIcon from "@mui/icons-material/Update";
 import CircularProgress from "@mui/material/CircularProgress";
 
-import { useAppDispatch } from "@/hooks/redux";
-import { deleteCity, selectCity } from "@/store/slices/citiesSlice";
 import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
 
 import styles from "./CityWeatherCard.module.scss";
-import {useGetCityWeatherQuery} from "@/store/api/weatherApi";
+import { useCityWeatherCard } from "@/hooks/useCityWeatherCard";
 
 interface Props {
     cityRef: string;
 }
 
 const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
-    const dispatch = useAppDispatch();
-    const { data: city, isLoading, error, refetch } = useGetCityWeatherQuery(cityRef);
+    const {
+        city,
+        isLoading,
+        error,
+        handleSelect,
+        handleDelete,
+        handleRefresh,
+    } = useCityWeatherCard(cityRef);
 
     if (error) {
         return (
@@ -37,31 +41,40 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
         );
     }
 
-    const weather = city.weather[0];
+    const weather = city.weather?.[0];
+    const temperature = Math.round(city.main?.temp);
 
     return (
-        <Card className={styles.card} onClick={() => dispatch(selectCity(city))}>
+        <Card className={styles.card} onClick={handleSelect}>
             <CardContent className={styles.content}>
                 <div className={styles.topArea}>
                     <div className={styles.iconWrap}>
-                        <DynamicSvgIcon name={weather.icon} size={72} />
+                        {weather && <DynamicSvgIcon name={weather.icon} size={72} />}
                     </div>
 
                     <Typography className={styles.cityName}>{city.name}</Typography>
+                    <Typography className={styles.temp}>{temperature}°C</Typography>
 
-                    <Typography className={styles.temp}>
-                        {Math.round(city.main.temp)}°C
-                    </Typography>
-
-                    <Typography className={styles.mainText}>{weather.main}</Typography>
-                    <Typography className={styles.desc}>{weather.description}</Typography>
+                    {weather && (
+                        <>
+                            <Typography className={styles.mainText}>
+                                {weather.main}
+                            </Typography>
+                            <Typography className={styles.desc}>
+                                {weather.description}
+                            </Typography>
+                        </>
+                    )}
                 </div>
 
-                <div className={styles.actions} onClick={(e) => e.stopPropagation()}>
+                <div
+                    className={styles.actions}
+                    onClick={(e) => e.stopPropagation()}
+                >
                     <IconButton
                         size="small"
                         className={styles.deleteBtn}
-                        onClick={() => dispatch(deleteCity(cityRef))}
+                        onClick={handleDelete}
                     >
                         <ClearIcon fontSize="small" />
                     </IconButton>
@@ -69,7 +82,7 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
                     <IconButton
                         size="small"
                         className={styles.refreshBtn}
-                        onClick={() => refetch()}
+                        onClick={handleRefresh}
                     >
                         <UpdateIcon fontSize="small" />
                     </IconButton>
@@ -79,4 +92,5 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
     );
 });
 
+CityWeatherCard.displayName = "CityWeatherCard";
 export default CityWeatherCard;

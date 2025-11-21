@@ -1,56 +1,47 @@
 "use client";
 
-import React, { ReactNode } from "react";
+import React, {JSX, ReactNode, useMemo} from "react";
 import styles from "./CardList.module.scss";
+import { Key } from "@/types/ui";
+import { getKeyFromItem } from "@/utils/getKeyFromItem";
 
-type Key = string | number;
-
-interface Props<T = any> {
+interface Props<T = unknown> {
     children?: ReactNode;
-    items?: T[];
+    items?: T[] | readonly T[];
     renderItem?: (item: T) => ReactNode;
-    keyExtractor?: (item: T) => Key;
+    keyExtractor?: (item: T) => Key | undefined;
     center?: boolean;
 }
 
-export default function CardList<T = any>({
-                                              children,
-                                              items,
-                                              renderItem,
-                                              keyExtractor,
-                                              center = true,
-                                          }: Props<T>) {
+export default function CardList<T = unknown>({
+                                                  children,
+                                                  items,
+                                                  renderItem,
+                                                  keyExtractor,
+                                                  center = true,
+                                              }: Props<T>): JSX.Element {
+    const className = center
+        ? `${styles.cardList} ${styles.centerChildren}`
+        : styles.cardList;
 
-    if (items && Array.isArray(items)) {
-        return (
-            <div className={`${styles.cardList} ${center ? styles.centerChildren : ""}`}>
-                {items.map((item, idx) => {
-                    let key: Key | undefined;
+    const renderedItems = useMemo(() => {
+        if (!items || !Array.isArray(items)) return null;
 
-                    try {
-                        if (keyExtractor) key = keyExtractor(item);
-                        else if (item && typeof item === "object") {
-                            const it = item as any;
-                            if (it.id !== undefined) key = it.id;
-                            else if (typeof it.name === "string") key = it.name;
-                        }
-                    } catch {}
+        return items.map((item, index) => {
+            const rawKey = getKeyFromItem(item, index, keyExtractor);
+            const key = String(rawKey);
 
-                    if (key === undefined) key = `item-${idx}`;
+            return (
+                <div key={key} className={styles.cardItem}>
+                    {renderItem ? renderItem(item) : null}
+                </div>
+            );
+        });
+    }, [items, renderItem, keyExtractor]);
 
-                    return (
-                        <div key={String(key)} className={styles.cardItem}>
-                            {renderItem ? renderItem(item) : null}
-                        </div>
-                    );
-                })}
-            </div>
-        );
+    if (renderedItems) {
+        return <div className={className}>{renderedItems}</div>;
     }
 
-    return (
-        <div className={`${styles.cardList} ${center ? styles.centerChildren : ""}`}>
-            {children}
-        </div>
-    );
+    return <div className={className}>{children}</div>;
 }

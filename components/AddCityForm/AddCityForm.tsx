@@ -1,30 +1,23 @@
 "use client";
 
-import React, { FC, FormEvent, memo, useState, useRef, useEffect } from "react";
+import React, { FormEvent, memo, useRef, useEffect } from "react";
+import { TextField, Button, Typography } from "@mui/material";
 import Image from "next/image";
-import { TextField, Button } from "@mui/material";
 
-import { useAppDispatch } from "@/hooks/redux";
-import { addCity } from "@/store/slices/citiesSlice";
-
+import { useAddCityForm } from "@/hooks/useAddCityForm";
 import styles from "./AddCityForm.module.scss";
 
-const AddCityForm: FC = memo(() => {
-    const [value, setValue] = useState("");
+const AddCityForm = memo(() => {
+    const { value, error, onChange, submit } = useAddCityForm();
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const dispatch = useAppDispatch();
 
     useEffect(() => {
         inputRef.current?.focus();
     }, []);
 
-    const handleSubmit = (e: FormEvent) => {
+    const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        const trimmed = value.trim();
-        if (!trimmed) return;
-
-        dispatch(addCity(trimmed));
-        setValue("");
+        await submit();
     };
 
     return (
@@ -45,8 +38,9 @@ const AddCityForm: FC = memo(() => {
                         label="City"
                         variant="outlined"
                         size="small"
-                        onChange={(e) => setValue(e.target.value)}
+                        onChange={(e) => onChange(e.target.value)}
                         className={styles.input}
+                        error={!!error}
                     />
 
                     <Button
@@ -58,6 +52,8 @@ const AddCityForm: FC = memo(() => {
                         Add
                     </Button>
                 </form>
+
+                {error && <Typography className={styles.errorMsg}>{error}</Typography>}
             </div>
         </header>
     );
