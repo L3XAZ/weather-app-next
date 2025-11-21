@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import React, {JSX, ReactNode, useMemo} from "react";
-import styles from "./CardList.module.scss";
-import { Key } from "@/types/ui";
-import { getKeyFromItem } from "@/utils/getKeyFromItem";
+import React, { JSX, ReactNode, useMemo } from 'react';
+import styles from './CardList.module.scss';
+import { Key } from '@/types/ui';
+import { getKeyFromItem } from '@/utils/getKeyFromItem';
 
 interface Props<T = unknown> {
     children?: ReactNode;
@@ -14,15 +14,13 @@ interface Props<T = unknown> {
 }
 
 export default function CardList<T = unknown>({
-                                                  children,
-                                                  items,
-                                                  renderItem,
-                                                  keyExtractor,
-                                                  center = true,
-                                              }: Props<T>): JSX.Element {
-    const className = center
-        ? `${styles.cardList} ${styles.centerChildren}`
-        : styles.cardList;
+    children,
+    items,
+    renderItem,
+    keyExtractor,
+    center = true,
+}: Props<T>): JSX.Element {
+    const className = center ? `${styles.cardList} ${styles.centerChildren}` : styles.cardList;
 
     const renderedItems = useMemo(() => {
         if (!items || !Array.isArray(items)) return null;

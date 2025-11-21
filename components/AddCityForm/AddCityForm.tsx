@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import React, { FormEvent, memo, useRef, useEffect } from "react";
-import { TextField, Button, Typography } from "@mui/material";
-import Image from "next/image";
+import React, { FormEvent, memo, useRef, useEffect } from 'react';
+import { TextField, Button, Typography } from '@mui/material';
+import Image from 'next/image';
 
-import { useAddCityForm } from "@/hooks/useAddCityForm";
-import styles from "./AddCityForm.module.scss";
+import { useAddCityForm } from '@/hooks/useAddCityForm';
+import styles from './AddCityForm.module.scss';
 
 const AddCityForm = memo(() => {
     const { value, error, onChange, add } = useAddCityForm();
@@ -59,5 +59,5 @@ const AddCityForm = memo(() => {
     );
 });
 
-AddCityForm.displayName = "AddCityForm";
+AddCityForm.displayName = 'AddCityForm';
 export default AddCityForm;

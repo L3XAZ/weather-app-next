@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import React from "react";
-import { Modal, Typography, IconButton } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
+import React from 'react';
+import { Modal, Typography, IconButton } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
-import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
-import HourlyChart from "./HourlyChart/HourlyChart";
+import DynamicSvgIcon from '@/components/ui/DynamicSvgIcon/DynamicSvgIcon';
+import HourlyChart from './HourlyChart/HourlyChart';
 
-import styles from "./ModalCityWeather.module.scss";
-import { useModalCityWeather } from "@/hooks/useModalCityWeather";
+import styles from './ModalCityWeather.module.scss';
+import { useModalCityWeather } from '@/hooks/useModalCityWeather';
 
 export default function ModalCityWeather() {
     const { city, prepared, handleClose } = useModalCityWeather();
@@ -28,10 +28,7 @@ export default function ModalCityWeather() {
             disableRestoreFocus
         >
             <div className={styles.card}>
-                <IconButton
-                    className={styles.closeBtn}
-                    onClick={handleClose}
-                >
+                <IconButton className={styles.closeBtn} onClick={handleClose}>
                     <CloseIcon className={styles.closeIconSvg} />
                 </IconButton>
 
@@ -71,8 +68,8 @@ export default function ModalCityWeather() {
                         <div className={styles.row}>
                             <span>Min / Max °</span>
                             <span>
-                {values.temp_min}°C / {values.temp_max}°C
-              </span>
+                                {values.temp_min}°C / {values.temp_max}°C
+                            </span>
                         </div>
                     </div>
                 </div>

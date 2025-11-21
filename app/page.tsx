@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import React from "react";
-import { useAppSelector } from "@/hooks/redux";
-import { useInitCities } from "@/hooks/useInitCities";
+import React from 'react';
+import { useAppSelector } from '@/hooks/redux';
+import { useInitCities } from '@/hooks/useInitCities';
 
-import AddCityForm from "@/components/AddCityForm/AddCityForm";
-import CardList from "@/components/CardList/CardList";
-import CityWeatherCard from "@/components/CityWeatherCard/CityWeatherCard";
-import ModalCityWeather from "@/components/ModalCityWeather/ModalCityWeather";
+import AddCityForm from '@/components/AddCityForm/AddCityForm';
+import CardList from '@/components/CardList/CardList';
+import CityWeatherCard from '@/components/CityWeatherCard/CityWeatherCard';
+import ModalCityWeather from '@/components/ModalCityWeather/ModalCityWeather';
 
 export default function Page() {
     const ready = useInitCities();
@@ -34,9 +34,7 @@ export default function Page() {
                     />
                 </main>
             ) : (
-                <div className="page-empty">
-                    {`Awaiting your first city to track…`}
-                </div>
+                <div className="page-empty">{`Awaiting your first city to track…`}</div>
             )}
 
             <ModalCityWeather />

@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React, { memo } from "react";
-import styles from "./BackgroundVideo.module.scss";
+import React, { memo } from 'react';
+import styles from './BackgroundVideo.module.scss';
 
 const BackgroundVideo = () => {
     return (

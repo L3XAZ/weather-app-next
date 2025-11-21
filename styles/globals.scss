@@ -1,50 +1,50 @@
-@use "./variables.scss" as vars;
-@use "./reset.scss";
+@use './variables.scss' as vars;
+@use './reset.scss';
 
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap');
 
 :root {
-  --bg: #{vars.$color-bg};
-  --card-bg: #{vars.$color-bg-card};
-  --text: #{vars.$color-text-main};
-  --muted: #{vars.$color-text-secondary};
+    --bg: #{vars.$color-bg};
+    --card-bg: #{vars.$color-bg-card};
+    --text: #{vars.$color-text-main};
+    --muted: #{vars.$color-text-secondary};
 
-  --gold-soft: #{vars.$color-gold-soft};
-  --gold-light: #{vars.$color-gold-light};
-  --accent-gold: #{vars.$color-accent-gold};
+    --gold-soft: #{vars.$color-gold-soft};
+    --gold-light: #{vars.$color-gold-light};
+    --accent-gold: #{vars.$color-accent-gold};
 
-  --border: #{vars.$color-border};
+    --border: #{vars.$color-border};
 
-  --radius-lg: #{vars.$radius-lg};
-  --radius-md: #{vars.$radius-md};
-  --radius-sm: #{vars.$radius-sm};
+    --radius-lg: #{vars.$radius-lg};
+    --radius-md: #{vars.$radius-md};
+    --radius-sm: #{vars.$radius-sm};
 
-  --shadow-card: #{vars.$shadow-card};
-  --shadow-card-hover: #{vars.$shadow-card-hover};
+    --shadow-card: #{vars.$shadow-card};
+    --shadow-card-hover: #{vars.$shadow-card-hover};
 
-  --container-max: #{vars.$container-max};
-  --spacing-base: #{vars.$spacing-md};
-  --spacing-lg: #{vars.$spacing-xl};
+    --container-max: #{vars.$container-max};
+    --spacing-base: #{vars.$spacing-md};
+    --spacing-lg: #{vars.$spacing-xl};
 }
 
 body {
-  margin: 0;
-  color: var(--text);
-  background: var(--bg);
-  font-family: "Manrope", sans-serif;
-  -webkit-font-smoothing: antialiased;
+    margin: 0;
+    color: var(--text);
+    background: var(--bg);
+    font-family: 'Manrope', sans-serif;
+    -webkit-font-smoothing: antialiased;
 
-  .page-empty {
-    margin-top: 32px;
-    text-align: center;
-    color: var(--muted);
-    font-size: 34px;
-  }
+    .page-empty {
+        margin-top: 32px;
+        text-align: center;
+        color: var(--muted);
+        font-size: 34px;
+    }
 }
 
 .container {
-  max-width: var(--container-max);
-  margin: 0 auto;
-  padding: 0 var(--spacing-base);
-  width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--spacing-base);
+    width: 100%;
 }

@@ -1,4 +1,4 @@
-import { Key } from "@/types/ui";
+import { Key } from '@/types/ui';
 
 export function getKeyFromItem<T>(
     item: T,
@@ -12,11 +12,10 @@ export function getKeyFromItem<T>(
         } catch {}
     }
 
-    if (item && typeof item === "object") {
+    if (item && typeof item === 'object') {
         const asAny = item as any;
         if (asAny.id !== undefined && asAny.id !== null) return asAny.id;
-        if (typeof asAny.name === "string" && asAny.name.length > 0)
-            return asAny.name;
+        if (typeof asAny.name === 'string' && asAny.name.length > 0) return asAny.name;
     }
 
     return `item-${index}`;

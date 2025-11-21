@@ -1,8 +1,8 @@
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { unselectCity, selectSelectedCity } from "@/store/slices/citiesSlice";
-import { useCallback, useMemo } from "react";
-import { getTodayString, getMainValues } from "@/lib/weatherHelpers";
-import type { FetchedCityWeather } from "@/types/weather";
+import { useAppDispatch, useAppSelector } from '@/hooks/redux';
+import { unselectCity, selectSelectedCity } from '@/store/slices/citiesSlice';
+import { useCallback, useMemo } from 'react';
+import { getTodayString, getMainValues } from '@/lib/weatherHelpers';
+import type { FetchedCityWeather } from '@/types/weather';
 
 export const useModalCityWeather = () => {
     const dispatch = useAppDispatch();

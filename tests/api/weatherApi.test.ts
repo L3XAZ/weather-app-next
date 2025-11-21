@@ -1,8 +1,8 @@
-import { weatherApi } from "@/store/api/weatherApi";
-import { configureStore } from "@reduxjs/toolkit";
-import { setupListeners } from "@reduxjs/toolkit/query";
+import { weatherApi } from '@/store/api/weatherApi';
+import { configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
-describe("weatherApi endpoints", () => {
+describe('weatherApi endpoints', () => {
     let store: any;
 
     beforeEach(() => {
@@ -23,51 +23,41 @@ describe("weatherApi endpoints", () => {
         return new Response(JSON.stringify(body), { status: 200 });
     }
 
-    test("getCityWeather calls correct URL", async () => {
+    test('getCityWeather calls correct URL', async () => {
         (global.fetch as jest.Mock).mockResolvedValue(
-            mockResponse({ id: 1, name: "London", weather: [], main: {} })
+            mockResponse({ id: 1, name: 'London', weather: [], main: {} })
         );
 
-        store.dispatch(
-            weatherApi.endpoints.getCityWeather.initiate("London")
-        );
+        store.dispatch(weatherApi.endpoints.getCityWeather.initiate('London'));
 
         await flush();
 
         const req = (global.fetch as jest.Mock).mock.calls[0][0] as Request;
 
-        expect(req.url).toContain("/weather");
+        expect(req.url).toContain('/weather');
     });
 
-    test("getHourlyForecast calls correct URL", async () => {
-        (global.fetch as jest.Mock).mockResolvedValue(
-            mockResponse({ list: [] })
-        );
+    test('getHourlyForecast calls correct URL', async () => {
+        (global.fetch as jest.Mock).mockResolvedValue(mockResponse({ list: [] }));
 
-        store.dispatch(
-            weatherApi.endpoints.getHourlyForecast.initiate("London")
-        );
+        store.dispatch(weatherApi.endpoints.getHourlyForecast.initiate('London'));
 
         await flush();
 
         const req = (global.fetch as jest.Mock).mock.calls[0][0] as Request;
 
-        expect(req.url).toContain("/forecast");
+        expect(req.url).toContain('/forecast');
     });
 
-    test("getCitiesWeather calls correct URL", async () => {
-        (global.fetch as jest.Mock).mockResolvedValue(
-            mockResponse({ list: [] })
-        );
+    test('getCitiesWeather calls correct URL', async () => {
+        (global.fetch as jest.Mock).mockResolvedValue(mockResponse({ list: [] }));
 
-        store.dispatch(
-            weatherApi.endpoints.getCitiesWeather.initiate([1, 2])
-        );
+        store.dispatch(weatherApi.endpoints.getCitiesWeather.initiate([1, 2]));
 
         await flush();
 
         const req = (global.fetch as jest.Mock).mock.calls[0][0] as Request;
 
-        expect(req.url).toContain("/group");
+        expect(req.url).toContain('/group');
     });
 });

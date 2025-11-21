@@ -1,31 +1,31 @@
 .cardList {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
 
-  width: 100%;
-  max-width: 1400px;
-  padding: 20px;
-  margin: 0 auto;
+    width: 100%;
+    max-width: 1400px;
+    padding: 20px;
+    margin: 0 auto;
 }
 
 .cardItem {
-  flex: 1 1 340px;
-  max-width: 340px;
-  display: flex;
-  justify-content: center;
+    flex: 1 1 340px;
+    max-width: 340px;
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 900px) {
-  .cardItem {
-    flex: 1 1 300px;
-  }
+    .cardItem {
+        flex: 1 1 300px;
+    }
 }
 
 @media (max-width: 600px) {
-  .cardItem {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
+    .cardItem {
+        flex: 1 1 100%;
+        max-width: 100%;
+    }
 }

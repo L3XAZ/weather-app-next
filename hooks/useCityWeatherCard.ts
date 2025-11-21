@@ -1,7 +1,7 @@
-import { useCallback } from "react";
-import { useAppDispatch } from "@/hooks/redux";
-import { deleteCity, selectCity } from "@/store/slices/citiesSlice";
-import { useGetCityWeatherQuery } from "@/store/api/weatherApi";
+import { useCallback } from 'react';
+import { useAppDispatch } from '@/hooks/redux';
+import { deleteCity, selectCity } from '@/store/slices/citiesSlice';
+import { useGetCityWeatherQuery } from '@/store/api/weatherApi';
 
 export const useCityWeatherCard = (cityRef: string) => {
     const dispatch = useAppDispatch();

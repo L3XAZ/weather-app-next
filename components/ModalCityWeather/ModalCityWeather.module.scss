@@ -1,257 +1,271 @@
-@use "@/styles/mixins" as mix;
+@use '@/styles/mixins' as mix;
 
 @keyframes iconPulse {
-  0% { transform: scale(1); }
-  35% { transform: scale(1.12); }
-  55% { transform: scale(1.07); }
-  70% { transform: scale(1.10); }
-  85% { transform: scale(1.08); }
-  100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+    35% {
+        transform: scale(1.12);
+    }
+    55% {
+        transform: scale(1.07);
+    }
+    70% {
+        transform: scale(1.1);
+    }
+    85% {
+        transform: scale(1.08);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 .modalRoot {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 10px;
 }
 
 .card {
-  width: 100%;
-  max-width: 860px;
-  padding: 22px;
-  position: relative;
-  overflow: hidden;
-  border-radius: var(--radius-lg);
-  background: rgba(20, 20, 20, 0.72);
-  border: 1px solid rgba(242, 200, 76, 0.25);
-  backdrop-filter: blur(18px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55), inset 0 0 60px rgba(255, 200, 120, 0.05);
+    width: 100%;
+    max-width: 860px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: rgba(20, 20, 20, 0.72);
+    border: 1px solid rgba(242, 200, 76, 0.25);
+    backdrop-filter: blur(18px);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.55),
+        inset 0 0 60px rgba(255, 200, 120, 0.05);
 }
 
 .closeBtn {
-  position: absolute !important;
-  top: 16px;
-  right: 16px;
-  width: 32px !important;
-  height: 32px !important;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: transparent !important;
-  opacity: 0.8;
+    position: absolute !important;
+    top: 16px;
+    right: 16px;
+    width: 32px !important;
+    height: 32px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important;
+    opacity: 0.8;
 }
 
 .closeIconSvg {
-  font-size: 22px;
-  color: var(--gold-light);
+    font-size: 22px;
+    color: var(--gold-light);
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto auto auto;
-  gap: 26px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 26px;
 }
 
 .header {
-  grid-column: 1 / 4;
-  text-align: center;
+    grid-column: 1 / 4;
+    text-align: center;
 }
 
 .city {
-  font-size: 40px !important;
+    font-size: 40px !important;
 
-  :global(.MuiTypography-root) & {
-    font-size: 36px;
-  }
-  font-weight: 700;
-  color: var(--gold-light);
-  letter-spacing: 0.3px;
+    :global(.MuiTypography-root) & {
+        font-size: 36px;
+    }
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.3px;
 }
 
 .date {
-  font-size: 16px !important;
-  padding-top: 5px;
-  color: var(--muted);
+    font-size: 16px !important;
+    padding-top: 5px;
+    color: var(--muted);
 }
 
 .left {
-  grid-column: 1 / 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
+    grid-column: 1 / 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
 }
 
 .iconWrap {
-  width: 120px;
-  height: 120px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  @media (min-width: 769px) {
-    &:hover {
-      animation: iconPulse 1.3s ease-out forwards;
+    @media (min-width: 769px) {
+        &:hover {
+            animation: iconPulse 1.3s ease-out forwards;
+        }
     }
-  }
 }
 
 .temp {
-  font-size: 34px !important;
-  font-weight: 700;
+    font-size: 34px !important;
+    font-weight: 700;
 }
 
 .main {
-  font-size: 20px !important;
-  font-weight: 500;
-  color: var(--gold-light);
+    font-size: 20px !important;
+    font-weight: 500;
+    color: var(--gold-light);
 }
 
 .desc {
-  font-size: 15px;
-  color: var(--muted);
-  text-transform: capitalize;
-  margin-bottom: 24px !important;
+    font-size: 15px;
+    color: var(--muted);
+    text-transform: capitalize;
+    margin-bottom: 24px !important;
 }
 
 .chart {
-  grid-column: 2 / 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    grid-column: 2 / 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .chartInner {
-  width: 100%;
-  padding-right: 73px;
+    width: 100%;
+    padding-right: 73px;
 }
 
 .details {
-  grid-column: 1 / 4;
-  max-width: 650px;
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding-inline: 15px;
+    grid-column: 1 / 4;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-inline: 15px;
 }
 
 .row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 6px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .row span:first-child {
-  font-size: 15px;
-  color: var(--muted);
+    font-size: 15px;
+    color: var(--muted);
 }
 
 .row span:last-child {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--gold-soft);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gold-soft);
 }
 
 @include mix.mobile {
-  .modalRoot {
-    padding: 35px 25px;
-  }
+    .modalRoot {
+        padding: 35px 25px;
+    }
 
-  .card {
-    max-height: 100vh;
-    overflow-y: auto;
-    margin-top: 22px;
-    padding: 10px;
-    max-width: 95%;
-  }
+    .card {
+        max-height: 100vh;
+        overflow-y: auto;
+        margin-top: 22px;
+        padding: 10px;
+        max-width: 95%;
+    }
 
-  .grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto;
-    gap: 0;
-  }
+    .grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 0;
+    }
 
-  .city,
-  .date,
-  .temp,
-  .main,
-  .desc,
-  .row span {
-    line-height: 1.15 !important;
-  }
+    .city,
+    .date,
+    .temp,
+    .main,
+    .desc,
+    .row span {
+        line-height: 1.15 !important;
+    }
 
-  .header {
-    grid-column: 1;
-  }
+    .header {
+        grid-column: 1;
+    }
 
-  .city {
-    font-size: 32px !important;
-  }
+    .city {
+        font-size: 32px !important;
+    }
 
-  .date {
-    font-size: 12px !important;
-  }
+    .date {
+        font-size: 12px !important;
+    }
 
-  .left {
-    grid-column: 1;
-  }
+    .left {
+        grid-column: 1;
+    }
 
-  .iconWrap {
-    width: 80px;
-    height: 80px;
-    animation: none !important;
-    transform: none !important;
-  }
+    .iconWrap {
+        width: 80px;
+        height: 80px;
+        animation: none !important;
+        transform: none !important;
+    }
 
-  .temp {
-    font-size: 26px !important;
-  }
+    .temp {
+        font-size: 26px !important;
+    }
 
-  .main {
-    font-size: 18px;
-  }
+    .main {
+        font-size: 18px;
+    }
 
-  .desc {
-    font-size: 14px;
-    margin-bottom: 0 !important;
-  }
+    .desc {
+        font-size: 14px;
+        margin-bottom: 0 !important;
+    }
 
-  .chart {
-    grid-column: 1;
-  }
+    .chart {
+        grid-column: 1;
+    }
 
-  .chartInner {
-    padding-right: 35px;
-  }
+    .chartInner {
+        padding-right: 35px;
+    }
 
-  .details {
-    grid-column: 1;
-    max-width: 90%;
-    padding-inline: 4px;
-  }
+    .details {
+        grid-column: 1;
+        max-width: 90%;
+        padding-inline: 4px;
+    }
 
-  .row span:first-child {
-    font-size: 14px;
-  }
+    .row span:first-child {
+        font-size: 14px;
+    }
 
-  .row span:last-child {
-    font-size: 15px;
-  }
+    .row span:last-child {
+        font-size: 15px;
+    }
 
-  .closeBtn {
-    top: 12px;
-    right: 12px;
-  }
+    .closeBtn {
+        top: 12px;
+        right: 12px;
+    }
 }
 
 :global(.MuiTypography-root) {
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
 }

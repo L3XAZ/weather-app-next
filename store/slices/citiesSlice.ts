@@ -1,6 +1,6 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { addCityToLS, deleteCityFromLS, getCitiesFromLS } from "@/lib/localStorage";
-import type { FetchedCityWeather } from "@/types/weather";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { addCityToLS, deleteCityFromLS, getCitiesFromLS } from '@/lib/localStorage';
+import type { FetchedCityWeather } from '@/types/weather';
 
 interface CitiesState {
     cities: string[];
@@ -13,7 +13,7 @@ const initialState: CitiesState = {
 };
 
 export const citiesSlice = createSlice({
-    name: "cities",
+    name: 'cities',
     initialState,
     reducers: {
         setCities(state, action: PayloadAction<string[]>) {

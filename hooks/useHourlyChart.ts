@@ -1,5 +1,5 @@
-import { useGetHourlyForecastQuery } from "@/store/api/weatherApi";
-import { useMemo } from "react";
+import { useGetHourlyForecastQuery } from '@/store/api/weatherApi';
+import { useMemo } from 'react';
 
 export const useHourlyChart = (cityName: string) => {
     const { data, isLoading, error } = useGetHourlyForecastQuery(cityName);

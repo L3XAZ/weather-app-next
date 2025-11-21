@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useAppDispatch } from "@/hooks/redux";
-import { setCities } from "@/store/slices/citiesSlice";
-import { getCitiesFromLS } from "@/lib/localStorage";
+import { useEffect, useState } from 'react';
+import { useAppDispatch } from '@/hooks/redux';
+import { setCities } from '@/store/slices/citiesSlice';
+import { getCitiesFromLS } from '@/lib/localStorage';
 
 export const useInitCities = () => {
     const [ready, setReady] = useState(false);

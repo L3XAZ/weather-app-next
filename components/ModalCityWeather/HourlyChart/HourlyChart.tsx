@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import React from "react";
-import { CircularProgress, Stack, Typography } from "@mui/material";
+import React from 'react';
+import { CircularProgress, Stack, Typography } from '@mui/material';
 import {
     ResponsiveContainer,
     AreaChart,
@@ -10,11 +10,11 @@ import {
     YAxis,
     Tooltip,
     CartesianGrid,
-} from "recharts";
+} from 'recharts';
 
-import { useHourlyChart } from "@/hooks/useHourlyChart";
+import { useHourlyChart } from '@/hooks/useHourlyChart';
 
-import styles from "./HourlyChart.module.scss";
+import styles from './HourlyChart.module.scss';
 
 interface Props {
     cityName: string;
@@ -32,23 +32,13 @@ export default function HourlyChart({ cityName }: Props) {
     }
 
     if (error || chartData.length === 0) {
-        return (
-            <Typography sx={{ textAlign: "center" }}>
-                Can’t load forecast
-            </Typography>
-        );
+        return <Typography sx={{ textAlign: 'center' }}>Can’t load forecast</Typography>;
     }
 
     return (
-        <div
-            className={styles.container}
-            data-testid="chart-container"
-        >
+        <div className={styles.container} data-testid="chart-container">
             <ResponsiveContainer>
-                <AreaChart
-                    data={chartData}
-                    margin={{ left: 0, right: 0, top: 20, bottom: 0 }}
-                >
+                <AreaChart data={chartData} margin={{ left: 0, right: 0, top: 20, bottom: 0 }}>
                     <defs>
                         <linearGradient id="tempGradient" x1="0" y1="0" x2="0" y2="1">
                             <stop offset="0%" stopColor="var(--gold-soft)" stopOpacity={0.4} />
@@ -57,36 +47,33 @@ export default function HourlyChart({ cityName }: Props) {
                         </linearGradient>
                     </defs>
 
-                    <CartesianGrid
-                        stroke="rgba(255,255,255,0.06)"
-                        vertical={false}
-                    />
+                    <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
 
                     <XAxis
                         dataKey="hours"
                         stroke="var(--muted)"
                         tick={{ fontSize: 11 }}
                         tickLine={false}
-                        axisLine={{ stroke: "rgba(255,255,255,0.15)" }}
+                        axisLine={{ stroke: 'rgba(255,255,255,0.15)' }}
                     />
 
                     <YAxis
                         stroke="var(--muted)"
                         tick={{ fontSize: 11 }}
                         tickLine={false}
-                        axisLine={{ stroke: "rgba(255,255,255,0.15)" }}
+                        axisLine={{ stroke: 'rgba(255,255,255,0.15)' }}
                     />
 
                     <Tooltip
                         contentStyle={{
-                            background: "rgba(25, 19, 10, 0.85)",
-                            border: "1px solid rgba(242, 200, 76, 0.22)",
-                            borderRadius: "8px",
-                            color: "var(--text)",
-                            fontSize: "13px",
-                            backdropFilter: "blur(10px)",
+                            background: 'rgba(25, 19, 10, 0.85)',
+                            border: '1px solid rgba(242, 200, 76, 0.22)',
+                            borderRadius: '8px',
+                            color: 'var(--text)',
+                            fontSize: '13px',
+                            backdropFilter: 'blur(10px)',
                         }}
-                        itemStyle={{ color: "var(--gold-light)" }}
+                        itemStyle={{ color: 'var(--gold-light)' }}
                     />
 
                     <Area
@@ -97,14 +84,14 @@ export default function HourlyChart({ cityName }: Props) {
                         fill="url(#tempGradient)"
                         dot={{
                             r: 4,
-                            fill: "white",
-                            stroke: "var(--gold-soft)",
+                            fill: 'white',
+                            stroke: 'var(--gold-soft)',
                             strokeWidth: 1,
                         }}
                         activeDot={{
                             r: 6,
-                            fill: "var(--gold-light)",
-                            stroke: "white",
+                            fill: 'var(--gold-light)',
+                            stroke: 'white',
                             strokeWidth: 2,
                         }}
                     />

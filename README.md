@@ -4,7 +4,6 @@
 
 <h1 align="center">Umbrella Weather</h1>
 
-
 ---
 
 ## 🌤 Overview
@@ -28,6 +27,7 @@ No server-side rendering — the app is fully client-side by design to avoid exp
 ## 🧱 Tech Stack
 
 **Core**
+
 - Next.js **16.0.3**
 - React **19.2.0**
 - TypeScript **5**
@@ -36,11 +36,13 @@ No server-side rendering — the app is fully client-side by design to avoid exp
 - SCSS Modules
 
 **UI**
+
 - MUI **7.3.5**
 - Recharts **3.4.1**
 - react-hot-toast **2.6.0**
 
 **Testing**
+
 - Jest **30.x**
 - jest-environment-jsdom
 - React Testing Library **16.x**

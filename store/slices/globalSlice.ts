@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { AlertSeverity } from "@/types/ui";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { AlertSeverity } from '@/types/ui';
 
 interface AlertState {
     isOpen: boolean;
@@ -12,11 +12,11 @@ interface GlobalState {
 }
 
 const initialState: GlobalState = {
-    alert: { isOpen: false, severity: AlertSeverity.SUCCESS, message: "" },
+    alert: { isOpen: false, severity: AlertSeverity.SUCCESS, message: '' },
 };
 
 export const globalSlice = createSlice({
-    name: "global",
+    name: 'global',
     initialState,
     reducers: {
         openAlert: (state, action: PayloadAction<{ severity: AlertSeverity; message: string }>) => {

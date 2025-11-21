@@ -1,11 +1,11 @@
-import "@testing-library/jest-dom";
-import "whatwg-fetch";
+import '@testing-library/jest-dom';
+import 'whatwg-fetch';
 
-import { TextDecoder, TextEncoder } from "util";
+import { TextDecoder, TextEncoder } from 'util';
 
-jest.mock("next/navigation", () => require("next-router-mock"));
+jest.mock('next/navigation', () => require('next-router-mock'));
 
-jest.mock("next/image", () => ({
+jest.mock('next/image', () => ({
     __esModule: true,
     default: (props: any) => <img {...props} />,
 }));

@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import React, { FC, memo, useMemo } from "react";
-import Image from "next/image";
-import styles from "./DynamicSvgIcon.module.scss";
+import React, { FC, memo, useMemo } from 'react';
+import Image from 'next/image';
+import styles from './DynamicSvgIcon.module.scss';
 
 interface Props {
     name?: string | null;
@@ -12,33 +12,28 @@ interface Props {
 
 const DynamicSvgIcon: FC<Props> = ({ name, size = 64, className }) => {
     const fileName = useMemo(() => {
-        if (!name) return "default-weather-icon";
-        const cleaned = name.trim().replace(/[^a-z0-9\-_.]/gi, "");
-        return cleaned || "default-weather-icon";
+        if (!name) return 'default-weather-icon';
+        const cleaned = name.trim().replace(/[^a-z0-9\-_.]/gi, '');
+        return cleaned || 'default-weather-icon';
     }, [name]);
 
     const wrapperStyle: React.CSSProperties = useMemo(
         () => ({
             width: size,
             height: size,
-            position: "relative",
+            position: 'relative',
         }),
         [size]
     );
 
     const rootClass = useMemo(
-        () => [styles.iconWrapper, className].filter(Boolean).join(" "),
+        () => [styles.iconWrapper, className].filter(Boolean).join(' '),
         [className]
     );
 
     return (
         <div className={rootClass} style={wrapperStyle}>
-            <Image
-                src={`/icons/${fileName}.svg`}
-                alt={fileName}
-                fill
-                sizes={`${size}px`}
-            />
+            <Image src={`/icons/${fileName}.svg`} alt={fileName} fill sizes={`${size}px`} />
         </div>
     );
 };

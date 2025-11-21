@@ -1,29 +1,23 @@
-"use client";
+'use client';
 
-import React, { FC, memo } from "react";
-import { Card, CardContent, Typography, IconButton } from "@mui/material";
-import ClearIcon from "@mui/icons-material/Clear";
-import UpdateIcon from "@mui/icons-material/Update";
-import CircularProgress from "@mui/material/CircularProgress";
+import React, { FC, memo } from 'react';
+import { Card, CardContent, Typography, IconButton } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
+import UpdateIcon from '@mui/icons-material/Update';
+import CircularProgress from '@mui/material/CircularProgress';
 
-import DynamicSvgIcon from "@/components/ui/DynamicSvgIcon/DynamicSvgIcon";
+import DynamicSvgIcon from '@/components/ui/DynamicSvgIcon/DynamicSvgIcon';
 
-import styles from "./CityWeatherCard.module.scss";
-import { useCityWeatherCard } from "@/hooks/useCityWeatherCard";
+import styles from './CityWeatherCard.module.scss';
+import { useCityWeatherCard } from '@/hooks/useCityWeatherCard';
 
 interface Props {
     cityRef: string;
 }
 
 const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
-    const {
-        city,
-        isLoading,
-        error,
-        handleSelect,
-        handleDelete,
-        handleRefresh,
-    } = useCityWeatherCard(cityRef);
+    const { city, isLoading, error, handleSelect, handleDelete, handleRefresh } =
+        useCityWeatherCard(cityRef);
 
     if (error) {
         return (
@@ -45,11 +39,7 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
     const temperature = Math.round(city.main?.temp);
 
     return (
-        <Card
-            className={styles.card}
-            onClick={handleSelect}
-            data-testid="weather-card"
-        >
+        <Card className={styles.card} onClick={handleSelect} data-testid="weather-card">
             <CardContent className={styles.content}>
                 <div className={styles.topArea}>
                     <div className={styles.iconWrap}>
@@ -61,20 +51,13 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
 
                     {weather && (
                         <>
-                            <Typography className={styles.mainText}>
-                                {weather.main}
-                            </Typography>
-                            <Typography className={styles.desc}>
-                                {weather.description}
-                            </Typography>
+                            <Typography className={styles.mainText}>{weather.main}</Typography>
+                            <Typography className={styles.desc}>{weather.description}</Typography>
                         </>
                     )}
                 </div>
 
-                <div
-                    className={styles.actions}
-                    onClick={(e) => e.stopPropagation()}
-                >
+                <div className={styles.actions} onClick={(e) => e.stopPropagation()}>
                     <IconButton
                         size="small"
                         className={styles.deleteBtn}
@@ -98,5 +81,5 @@ const CityWeatherCard: FC<Props> = memo(({ cityRef }) => {
     );
 });
 
-CityWeatherCard.displayName = "CityWeatherCard";
+CityWeatherCard.displayName = 'CityWeatherCard';
 export default CityWeatherCard;
