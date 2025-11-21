@@ -164,7 +164,10 @@
   }
 
   .card {
-    padding: 20px;
+    max-height: 100vh;
+    overflow-y: auto;
+    margin-top: 22px;
+    padding: 10px;
     max-width: 95%;
   }
 
