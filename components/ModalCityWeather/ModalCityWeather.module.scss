@@ -174,7 +174,16 @@
   .grid {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto;
-    gap: 20px;
+    gap: 0;
+  }
+
+  .city,
+  .date,
+  .temp,
+  .main,
+  .desc,
+  .row span {
+    line-height: 1.15 !important;
   }
 
   .header {
@@ -182,11 +191,11 @@
   }
 
   .city {
-    font-size: 26px;
+    font-size: 32px !important;
   }
 
   .date {
-    font-size: 14px;
+    font-size: 12px !important;
   }
 
   .left {
@@ -194,14 +203,14 @@
   }
 
   .iconWrap {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     animation: none !important;
     transform: none !important;
   }
 
   .temp {
-    font-size: 34px;
+    font-size: 26px !important;
   }
 
   .main {
@@ -210,6 +219,7 @@
 
   .desc {
     font-size: 14px;
+    margin-bottom: 0 !important;
   }
 
   .chart {
