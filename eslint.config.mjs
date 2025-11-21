@@ -1,18 +1,37 @@
-import { defineConfig, globalIgnores } from "eslint/config";
-import nextVitals from "eslint-config-next/core-web-vitals";
-import nextTs from "eslint-config-next/typescript";
+import js from "@eslint/js";
+import next from "eslint-config-next";
+import prettier from "eslint-config-prettier";
+import globals from "globals";
 
-const eslintConfig = defineConfig([
-  ...nextVitals,
-  ...nextTs,
-  // Override default ignores of eslint-config-next.
-  globalIgnores([
-    // Default ignores of eslint-config-next:
-    ".next/**",
-    "out/**",
-    "build/**",
-    "next-env.d.ts",
-  ]),
-]);
-
-export default eslintConfig;
+export default [
+    {
+        ignores: [
+            "**/node_modules/",
+            "**/.next/",
+            "dist/",
+            "coverage/",
+        ],
+    },
+    js.configs.recommended,
+    {
+        ...next,
+    },
+    {
+        files: ["**/*.test.{js,jsx,ts,tsx}", "tests/**/*"],
+        languageOptions: {
+            globals: {
+                ...globals.jest,
+                ...globals.browser,
+            },
+        },
+    },
+    {
+        files: ["**/*.{ts,tsx}"],
+        languageOptions: {
+            parserOptions: {
+                project: "./tsconfig.json",
+            },
+        },
+    },
+    prettier,
+];
