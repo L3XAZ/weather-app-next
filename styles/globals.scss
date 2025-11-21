@@ -33,6 +33,13 @@ body {
   background: var(--bg);
   font-family: "Manrope", sans-serif;
   -webkit-font-smoothing: antialiased;
+
+  .page-empty {
+    margin-top: 32px;
+    text-align: center;
+    color: var(--muted);
+    font-size: 34px;
+  }
 }
 
 .container {

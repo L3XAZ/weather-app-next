@@ -35,7 +35,7 @@ export default function Page() {
                 </main>
             ) : (
                 <div className="page-empty">
-                    Awaiting your first city to track…
+                    {`Awaiting your first city to track…`}
                 </div>
             )}
 
