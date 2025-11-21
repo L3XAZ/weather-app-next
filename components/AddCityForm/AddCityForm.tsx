@@ -8,7 +8,7 @@ import { useAddCityForm } from "@/hooks/useAddCityForm";
 import styles from "./AddCityForm.module.scss";
 
 const AddCityForm = memo(() => {
-    const { value, error, onChange, submit } = useAddCityForm();
+    const { value, error, onChange, add } = useAddCityForm();
     const inputRef = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const AddCityForm = memo(() => {
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
-        await submit();
+        await add();
     };
 
     return (

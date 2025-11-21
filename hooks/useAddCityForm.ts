@@ -1,58 +1,57 @@
 import { useState } from "react";
-import { useAppDispatch } from "@/hooks/redux";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 import { addCity } from "@/store/slices/citiesSlice";
-import { useLazyGetCityWeatherQuery } from "@/store/api/weatherApi";
 import { toast } from "react-hot-toast";
+import { useLazyGetCityWeatherQuery } from "@/store/api/weatherApi";
 
 export const useAddCityForm = () => {
     const dispatch = useAppDispatch();
-    const [checkCity] = useLazyGetCityWeatherQuery();
+    const cities = useAppSelector((s) => s.cities.cities);
+    const [triggerCheckCity] = useLazyGetCityWeatherQuery();
 
-    const [value, setValue] = useState("");
-    const [error, setError] = useState<string | null>(null);
+    const [inputValue, setInputValue] = useState("");
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-    const showError = (msg: string) => {
-        setError(msg);
-        toast.error("No lights on that skyline. Try again.");
+    const onChange = (newValue: string) => {
+        setInputValue(newValue);
+        if (errorMessage) {
+            setErrorMessage(null);
+        }
     };
 
-    const clearError = () => {
-        if (error) setError(null);
-    };
+    const addCityHandler = async () => {
+        const trimmed = inputValue.trim();
 
-    const onChange = (v: string) => {
-        setValue(v);
-        clearError();
-    };
-
-    const submit = async () => {
-        const trimmed = value.trim();
-
-        if (!trimmed) {
-            showError("Enter a city");
+        const isValidName = /^[\p{Letter}\s-]+$/u.test(trimmed);
+        if (!isValidName) {
+            setErrorMessage("Only valid city names allowed");
+            toast.error("No lights on that skyline. Try again.");
             return;
         }
 
-        const valid = /^[\p{Letter}\s-]+$/u.test(trimmed);
-        if (!valid) {
-            showError("Only valid city names allowed");
+        const cityAlreadyExists = cities.some(
+            (existingCity) => existingCity.toLowerCase() === trimmed.toLowerCase()
+        );
+        if (cityAlreadyExists) {
+            toast.error("Almost! Check the name.");
             return;
         }
 
         try {
-            await checkCity(trimmed).unwrap();
+            await triggerCheckCity(trimmed).unwrap();
             dispatch(addCity(trimmed));
-            setValue("");
+            setInputValue("");
             toast.success("A new point on your horizon!");
         } catch {
-            showError("City not found");
+            setErrorMessage("City not found");
+            toast.error("No skies responded. Try again.");
         }
     };
 
     return {
-        value,
-        error,
+        value: inputValue,
+        error: errorMessage,
         onChange,
-        submit,
+        add: addCityHandler,
     };
 };
